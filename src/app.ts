@@ -1,10 +1,11 @@
 import Phaser from "phaser";
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "./constants/game";
 import { StageScene } from "./scenes/stage-scene";
 
 const defaultConfig: Phaser.Types.Core.GameConfig = {
   backgroundColor: '000000',
-  width: 1024,
-  height: 768,
+  width: SCREEN_WIDTH,
+  height: SCREEN_HEIGHT,
   parent: 'game',
   physics: {
     arcade: {
