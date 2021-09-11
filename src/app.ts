@@ -9,7 +9,7 @@ const defaultConfig: Phaser.Types.Core.GameConfig = {
   parent: 'game',
   physics: {
     arcade: {
-      debug: false,
+      debug: true,
       gravity: { x: 0, y: 0 },
     },
     default: 'arcade',

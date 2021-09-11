@@ -4,6 +4,7 @@ import { Player } from '../actors/player';
 import PlayerConstants from '../constants/player';
 import BulletConstants from '../constants/bullet';
 import { Bullets } from '../actors/bullets';
+import { scalingFactor } from '../constants/game';
 
 export class StageScene extends Phaser.Scene {
   private gameBackground: Phaser.GameObjects.Image;
@@ -26,16 +27,17 @@ export class StageScene extends Phaser.Scene {
   public preload(): void {
     this.load.image('game-background', `${backgrounds_path}/game-background.png`);
     this.load.spritesheet(PlayerConstants.player1SpriteKey, `${spritesheet_path}/player-one.png`, {
-      frameWidth: 48,
-      frameHeight: 48,
+      frameWidth: PlayerConstants.frameWidth,
+      frameHeight: PlayerConstants.frameHeight,
     });
+
     this.load.spritesheet(BulletConstants.bulletSpriteKey, `${spritesheet_path}/bullet.png`, {
       frameWidth: 12,
       frameHeight: 12,
     });
-    this.load.spritesheet(BulletConstants.bulletExplosionSpriteKey, `${spritesheet_path}/bullet-explosion.png`, {
-      frameWidth: 48,
-      frameHeight: 48,
+    this.load.spritesheet(BulletConstants.bulletExplosionSpriteKey, `${spritesheet_path}/explosion.png`, {
+      frameWidth: 16,
+      frameHeight: 16,
     });
   }
 
@@ -46,12 +48,7 @@ export class StageScene extends Phaser.Scene {
     this.player1BulletsGroup = this.physics.add.group();
     this.player1Bullets = new Bullets(this.player1BulletsGroup, this);
 
-    this.player1Sprite = this.physics.add.sprite(
-      PlayerConstants.player1InitialXPos,
-      PlayerConstants.player1InitialYPos,
-      'player1'
-    );
-    this.player1 = new Player(this.player1Sprite, PlayerConstants.player1SpriteKey, this);
+    this.player1 = new Player(PlayerConstants.player1SpriteKey, this);
 
     this.cursorKeys = this.input.keyboard.createCursorKeys();
     this.setupCollisions();
