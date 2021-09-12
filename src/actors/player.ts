@@ -113,35 +113,35 @@ export class Player {
   }
 
   private fire():void {
-    // if (this.sceneRef.getPlayer1Bullets.getLength() > 0) {
-    //   return ;
-    // }
+    if (this.sceneRef.getPlayer1Bullets.getLength() > 0) {
+      return ;
+    }
 
-    let posX: number, posY: number, velX: number, velY: number, frameNum:number;
+    let posX: number, posY: number, velX: number, velY: number, animKey: string;
     if (this.playerDirection === Phaser.UP) {
       posX = this.sprite.x + fireOffestMagicNumber;
       posY = this.sprite.y - (this.sprite.displayHeight / 2);
       velX = 0;
       velY = -BulletConstants.bulletVelocity;
-      frameNum = 0;
+      animKey = BulletConstants.bulletUpAnimation
     } else if (this.playerDirection === Phaser.DOWN) {
       posX = this.sprite.x + fireOffestMagicNumber;
       posY = this.sprite.y + this.sprite.displayHeight / 2;
       velX = 0;
       velY = BulletConstants.bulletVelocity;
-      frameNum = 2;
+      animKey = BulletConstants.bulletDownAnimation;
     } else if (this.playerDirection === Phaser.LEFT) {
       posX = this.sprite.x - this.sprite.displayWidth / 2;
       posY = this.sprite.y + fireOffestMagicNumber;
       velX = -BulletConstants.bulletVelocity;
       velY = 0;
-      frameNum = 3;
+      animKey = BulletConstants.bulletLeftAnimation;
     } else {
       posX = this.sprite.x + this.sprite.displayWidth / 2;
       posY = this.sprite.y + fireOffestMagicNumber;
       velX = BulletConstants.bulletVelocity;
       velY = 0;
-      frameNum = 1;
+      animKey = BulletConstants.bulletRightAnimation;
     }
 
     this.sceneRef.getPlayer1Bullets.createPlayerBullet({
@@ -149,10 +149,9 @@ export class Player {
       posY,
       velX,
       velY,
-      frameNum,
-      spriteKey: BulletConstants.bulletSpriteKey,
       name: BulletConstants.player1BulletName,
       direction: this.playerDirection,
+      animKey
     });
   }
 }

@@ -4,10 +4,9 @@ interface createBulletArgs {
   posY: number;
   velX: number;
   velY: number;
-  frameNum: number;
-  spriteKey: string;
   name: string;
   direction: number,
+  animKey: string,
 };
 
 export default createBulletArgs;
