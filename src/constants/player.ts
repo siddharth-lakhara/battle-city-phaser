@@ -4,7 +4,7 @@ export const frameWidth = 16;
 export const frameHeight = 16;
 
 export const player1InitialXPos = 300;
-export const player1InitialYPos = 300;
+export const player1InitialYPos = 500;
 export const scalingFactor = 3;
 export const playerVelocity = 100;
 

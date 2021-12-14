@@ -113,7 +113,7 @@ export class Player {
   }
 
   private fire():void {
-    if (this.sceneRef.getPlayer1Bullets.getLength() > 0) {
+    if (this.sceneRef.player1Bullets.getLength() > 0) {
       return ;
     }
 
@@ -144,7 +144,7 @@ export class Player {
       animKey = BulletConstants.bulletRightAnimation;
     }
 
-    this.sceneRef.getPlayer1Bullets.createPlayerBullet({
+    this.sceneRef.player1Bullets.createPlayerBullet({
       posX,
       posY,
       velX,

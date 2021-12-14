@@ -90,9 +90,12 @@ export class Bullets {
       name,
       key: Phaser.Math.RND.integer(),
       direction,
+      velX,
+      velY,
     };
     bullet.setData(objectData);
     bullet.setCollideWorldBounds(true);
+    // @ts-ignore
     bullet.body.onWorldBounds = true;
     bullet.setBounce(0);
   }
