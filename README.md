@@ -4,6 +4,8 @@ A clone of NES Battle City game built with [Phaser.js](https://phaser.io/) <br /
 
 _Warning: This is not fully featured game. However I dont intend to do any further development_
 
+
+![Game Image](./doc/Screenshot.png)
 ## About the project
 I built this project as an exercise to learn game development as well as to implement OOPS on a project. Though I am not a game developer and don't intend to be one. Major motivator for starting was OOPS, apart from that I wanted to explore new frontiers of knowledge
 
